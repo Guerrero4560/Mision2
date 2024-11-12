@@ -1,0 +1,546 @@
+:root {
+    --color-bg: rgba(255, 255, 255, 0.9);
+    --color-primary: rgb(170, 127, 77);
+    --color-text: black;
+    --color-text-light: gray;
+    --color-hover: black;
+}
+
+* {
+    box-sizing: border-box; /* Incluye paddings y márgenes en el tamaño de los elementos */
+}
+
+/* Contenedor del carrito */
+.cart-container {
+    display: none;
+    position: fixed;
+    top: 10%;
+    right: 10%;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 1000;
+}
+
+/* Estilos para la lista del carrito */
+#cartList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#cartList li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* Total del carrito */
+#cartTotal {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Botón limpiar carrito */
+#clearCart {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#clearCart:hover {
+    background-color: #e94b2d;
+}
+
+/* Estilo para los botones "Agregar al Carrito" */
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.add-to-cart:hover {
+    background-color: #45a049;
+}
+
+/* Otros estilos */
+.iconos {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+
+/* MenuBar */
+.panel_navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg);
+    padding: 0.8%;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 50%;
+    z-index: 1000;
+    
+
+}
+
+.logo_navbar {
+    width: 4%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.p_navbar {
+    margin: 0;
+    padding-left: 2%;
+    font-weight: bold;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu_items_navbar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.menu_items_navbar a:hover {
+    color: var(--color-hover);
+}
+
+.btn-navbar {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: auto;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-navbar:hover {
+    background-color: var(--color-hover);
+}
+
+/* Full-Screen-Background */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+}
+
+.video-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media1.tenor.com/m/5tqd8cBhC5oAAAAC/nike-niketn.gif') center/cover no-repeat;
+    filter: brightness(0.5);
+}
+
+.content-video-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.content-video-background h1 {
+    color: var(--color-primary);
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.content-video-background h2 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0;
+    margin-top: 5px;
+}
+
+/* Logos */
+.logos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%; 
+    padding: 20px 0;
+    margin-top: 20px; 
+    background-color: var(--color-bg);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-animated {
+    width: 10vh; 
+    height: auto;
+    transition: transform 0.3s ease, width 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.selected {
+    transform: scale(1.2);
+}
+
+.logo-name {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-top: 10px;
+    visibility: hidden; 
+    transition: visibility 0.3s ease;
+}
+
+.logo-item.selected .logo-name {
+    visibility: visible;
+}
+
+
+/*Carrusel */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+    overflow-x: auto; 
+ 
+}
+
+.carousel-images {
+    gap: 150px; 
+    display: flex;
+ 
+    justify-content: center; /* Centrar contenido */
+}
+
+.carousel-image {
+    width: 100px; 
+    height: auto;
+    border-radius: 5px; 
+    transition: transform 0.3s; 
+}
+
+.carousel-image:hover {
+    transform: scale(1.1); 
+}
+
+
+/* Estilos para las tarjetas del carrusel */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--color-text-light);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--color-bg);
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    flex: 1 1 200px; /* Flexibilidad en el tamaño de la tarjeta */
+    max-width: 250px; /* Ancho máximo para evitar que se estiren demasiado */
+    margin: 10px; /* Espaciado entre tarjetas */
+}
+
+.card img {
+    width: 100%; /* Escalar imagen al 100% del contenedor */
+    height: auto; /* Mantener proporciones */
+    max-height: 150px; /* Altura máxima para mantener consistencia */
+    object-fit: cover; /* Recortar la imagen si es necesario */
+}
+
+
+/* css de los iconos y zonas de texto de las redes */
+.redes {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 2em;
+    align-items: center;
+}
+
+.iconos {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin: 1em 0;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.2);  /* Aumentar el tamaño del ícono cuando el mouse pasa por encima */
+}
+
+.icon i {
+    font-size: 24px; /* Asegúrate de que los íconos sean de un tamaño adecuado */
+}
+
+.icon.facebook { background-color: #3b5998; }
+.icon.twitter { background-color: #1da1f2; }
+.icon.whatsapp { background-color: #25d366; }
+.icon.instagram { background-color: #c32aa3; }
+.icon.linkedin { background-color: #0077b5; }
+
+.informacion div {
+    margin: 0.5em 0;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    
+}
+.contact-box {
+    width: 400px; 
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 07px;
+    box-shadow: 2px 2px 8px #2b2b2b;
+    background-color: white;
+    font-size: 18px;
+    font-family: arial, sans-serif;
+}
+.contacto{
+    color: #c89116;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.contacto2{
+    
+    text-align: center;
+    font-size: 1rem;
+    
+}
+
+.card {
+    margin: 10px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%; 
+}
+
+
+/* seccion de aliados */
+
+    .imagenes-aliados {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 1em 0;
+    
+    }
+
+    .alianzas {
+        text-align: center;
+        padding: 2em;
+    }
+    .fuente1{
+        color: #c89116;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+    .fuente2{
+        margin: 0.5em 0; /* Espacio arriba y abajo */
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        
+    }
+
+/*footer*/
+footer {
+    background-color: rgb(170, 127, 77);
+    color: white;
+    text-align: center;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.icon {
+    width: 40px; /* Ajustar según el tamaño deseado */
+    height: 40px; /* Ajustar según el tamaño deseado */
+    border-radius: 50%; /* Opcional: hace que los iconos sean circulares */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Asegura que no se desborden */
+}
+
+.icon img {
+    width: 100%; /* Asegura que la imagen ocupe todo el espacio del div */
+    height: auto; /* Mantiene la proporción de la imagen */
+
+}
+
+
+
+@media (max-width: 480px) {
+    
+    .panel_navbar {
+        width: 70%; 
+        flex-direction: column; 
+        align-items: center; 
+        display: flex;
+        justify-content: center; 
+        transform: translate(-50%, 0);
+        top: 6%;
+    }
+
+    .carousel-images {
+        gap: 20px; 
+        width: 100px; 
+    }
+
+    .card {
+        flex: 1 1 150px; /* Cambiar el ancho mínimo de la tarjeta */
+    }
+
+    .logos-container{
+        margin: 0 auto; 
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+        gap: 10px; 
+    }
+ 
+    .content-video-background h1 {
+        font-size: 2rem; /* Reducir tamaño del título */
+    }
+
+    .content-video-background h2 {
+        font-size: 1rem; /* Reducir tamaño del subtítulo */
+    }
+
+    .logos-container {
+        flex-direction: column; /* Cambiar a columna */
+        align-items: center; /* Centrar logos */
+    }
+
+    .logo-item {
+        flex: 1 0 70%; /* Ajustar tamaño de los logos */
+        margin: 10px 0; /* Espaciado entre logos */
+    }
+
+    .iconos {
+        flex-direction: row; /* Cambiar a columna */
+        
+    }
+
+    .contact-box {
+        width: 90%; /* Ancho más estrecho */
+        margin: 1em auto; /* Centrar */
+    }
+
+    .btn-navbar {
+        margin: 10px 0; /* Añadir un margen superior e inferior */
+        width: 80%; /* Ajustar el ancho del botón */
+        text-align: center; /* Centrar el texto dentro del botón */
+    }
+}
+
+/* Para pantallas medianas */
+@media (min-width: 481px) and (max-width: 768px) {
+    .panel_navbar {
+        width: 80%; /* Ancho intermedio */
+        flex-direction: row; /* Volver a fila */
+    }
+
+    .logos-container {
+        flex-direction: row; /* Cambiar a fila */
+        flex-wrap: wrap; /* Permitir múltiples filas */
+    }
+
+    .logo-item {
+        flex: 1 0 45%; /* Ajustar tamaño de los logos */
+        margin: 10px; /* Espaciado entre logos */
+    }
+
+    .content-video-background h1 {
+        font-size: 2.5rem; /* Ajustar tamaño del título */
+    }
+
+    .content-video-background h2 {
+        font-size: 1.2rem; /* Ajustar tamaño del subtítulo */
+    }
+}
+
+/* Para pantallas grandes */
+@media (max-width: 769px) {
+    .panel_navbar {
+        width: 50%; /* Ancho más amplio */
+    }
+
+
+    .carousel-images {
+        gap: 10%; 
+        width: 100px; 
+    }
+    .logos-container {
+        flex-direction: row; /* Fila para pantallas grandes */
+    }
+
+    .logo-item {
+        flex: 1 0 30%; /* Ajustar tamaño de los logos */
+    }
+
+    .content-video-background h1 {
+        font-size: 3.5rem; /* Tamaño original del título */
+    }
+
+    .content-video-background h2 {
+        font-size: 1.5rem; /* Tamaño original del subtítulo */
+    }
+
+}
