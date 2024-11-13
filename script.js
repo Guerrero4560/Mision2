@@ -31,6 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
             ]
         }
     };
+      // JavaScript para manejar el desplazamiento y el parallax
+window.addEventListener('scroll', function() {
+    const parallax = document.querySelector('.video-background');
+    const scrollPosition = window.scrollY;
+    
+    // Movemos el fondo a una velocidad diferente a la del contenido
+    parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+});
 
     const logoItems = document.querySelectorAll(".logo-item");
     const carouselImages = document.getElementById("carousel-images");
