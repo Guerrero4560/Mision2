@@ -116,6 +116,7 @@
     transition: color 0.3s;
     cursor: pointer;
     text-decoration: none;
+    
 }
 
 .menu_items_navbar {
@@ -150,6 +151,7 @@
     width: 100%;
     height: 95vh;
     overflow: hidden;
+    transition: opacity 0.5s ease;
 }
 
 .video-background::before {
@@ -238,6 +240,8 @@
     align-items: center;
     margin-top: 20px; 
     overflow-x: auto; 
+    background-color: var(--color-bg);
+    
  
 }
 

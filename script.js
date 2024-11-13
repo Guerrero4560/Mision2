@@ -38,6 +38,14 @@ window.addEventListener('scroll', function() {
     
     // Movemos el fondo a una velocidad diferente a la del contenido
     parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+
+    if (window.scrollY > 500){
+        document.querySelector(".video-background").style.opacity = 0;
+        this.document.querySelector(".panel_navbar").style.display = "none";
+    } else {
+        document.querySelector(".video-background").style.opacity = 100;
+        this.document.querySelector(".panel_navbar").style.display = "";
+    }
 });
 
     const logoItems = document.querySelectorAll(".logo-item");
